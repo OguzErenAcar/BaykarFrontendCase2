@@ -55,7 +55,7 @@ function App() {
             <h1>Question {ind + 1}</h1>
             <p>{Questions[ind].body}</p>
             <button
-              disabled={30 < time}
+              disabled={20 < time}
               onClick={() => saveResult(Questions[ind].body.substring(0, 3))}
               style={{ display: "block" }}
             >
