@@ -30,9 +30,11 @@ function App() {
     return () => clearInterval(interval);
   },[isActive])
 
-  useEffect(()=>{
-    setIsActive(false)
-  },[ind>10])
+  useEffect(() => {
+    if (Answers.length > 9) {
+      setIsActive(false);  
+    }
+  }, [Answers]);
 
   useEffect(() => {
     if (0 >= time) saveResult("null");
@@ -53,7 +55,7 @@ function App() {
             <h1>Question {ind + 1}</h1>
             <p>{Questions[ind].body}</p>
             <button
-              disabled={20 < time}
+              disabled={30 < time}
               onClick={() => saveResult(Questions[ind].body.substring(0, 3))}
               style={{ display: "block" }}
             >
